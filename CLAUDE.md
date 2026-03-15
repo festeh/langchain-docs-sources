@@ -17,16 +17,21 @@ When writing code that calls an LLM, always use `ChatOpenAI` pointed at our endp
 
 ```python
 import os
-from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
-
-load_dotenv()
 
 llm = ChatOpenAI(
     base_url=os.environ["AI_ENDPOINT"] + "/v1",
     api_key=os.environ["AI_KEY"],
     model="glm-5",  # or any model available on the endpoint
 )
+```
+
+When using `create_agent`, pass the `ChatOpenAI` instance directly — not a string identifier:
+
+```python
+from langchain.agents import create_agent
+
+agent = create_agent(llm, tools=[...])
 ```
 
 Never hardcode keys. Never use provider-specific classes like `ChatAnthropic` or `ChatGoogleGenerativeAI` — route everything through `ChatOpenAI` with our endpoint.
