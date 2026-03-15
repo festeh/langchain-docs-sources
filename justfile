@@ -1,0 +1,19 @@
+# Run a notebook with decrypted env vars
+edit notebook:
+    sops exec-env .env 'marimo edit --port 8888 {{notebook}}'
+
+# Run a notebook in read-only mode
+run notebook:
+    sops exec-env .env 'marimo run --port 8888 {{notebook}}'
+
+# Kill any process on port 8888
+cleanup:
+    -kill $(lsof -ti :8888)
+
+# Decrypt .env to stdout
+show-env:
+    sops decrypt .env
+
+# Update all git submodules
+update-subs:
+    git submodule update --remote --merge
