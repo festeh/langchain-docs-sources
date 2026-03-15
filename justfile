@@ -1,10 +1,10 @@
 # Run a notebook with decrypted env vars
 edit notebook:
-    sops exec-env .env 'marimo edit --port 8888 {{notebook}}'
+    sops exec-env .env 'uv run marimo edit --watch --port 8888 {{notebook}}'
 
 # Run a notebook in read-only mode
 run notebook:
-    sops exec-env .env 'marimo run --port 8888 {{notebook}}'
+    sops exec-env .env 'uv run marimo run --watch --port 8888 {{notebook}}'
 
 # Kill any process on port 8888
 cleanup:
