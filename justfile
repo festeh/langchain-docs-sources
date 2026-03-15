@@ -8,7 +8,7 @@ run notebook:
 
 # Kill any process on port 8888
 cleanup:
-    -kill $(lsof -ti :8888)
+    -fuser -k 8888/tcp
 
 # Decrypt .env to stdout
 show-env:

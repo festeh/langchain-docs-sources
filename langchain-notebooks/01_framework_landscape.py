@@ -10,16 +10,46 @@ def _(mo):
         """
         # Lesson 1: Framework Landscape
 
-        **LangChain vs LangGraph vs Deep Agents — when to use what**
+        Three open source packages, three levels of the stack. Pick the right one and you save yourself hours.
+        """
+    )
+    return
 
-        LangChain maintains three open source packages for building agents.
-        Each sits at a different level of the stack:
 
-        | | Framework | Runtime | Harness |
+@app.cell
+def _(mo):
+    mo.md(
+        """
+        ## The Stack
+
+        ```
+        ┌───────────────────────────────┐
+        │  Deep Agents SDK  (harness)   │  batteries included
+        ├───────────────────────────────┤
+        │  LangChain        (framework) │  abstractions & integrations
+        ├───────────────────────────────┤
+        │  LangGraph        (runtime)   │  orchestration engine
+        └───────────────────────────────┘
+        ```
+
+        Each layer builds on the one below. LangChain runs on LangGraph. Deep Agents runs on LangGraph too.
+        """
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        """
+        ## At a Glance
+
+        | | **Framework** | **Runtime** | **Harness** |
         |---|---|---|---|
-        | **Package** | LangChain | LangGraph | Deep Agents SDK |
-        | **Value** | Abstractions, Integrations | Durable execution, Streaming, HITL, Persistence | Predefined tools, Prompts, Subagents |
-        | **When to use** | Getting started quickly, Standardizing team builds | Low-level control, Long-running stateful workflows | Autonomous agents, Complex non-deterministic tasks |
+        | Package | LangChain | LangGraph | Deep Agents SDK |
+        | You get | Model abstraction, tool interface, agent loop, 100+ integrations | Durable execution, streaming, human-in-the-loop, persistence | Planning, subagents, file system, token management |
+        | Use when | You want a working agent fast | You need low-level control or long-running workflows | You need autonomous agents for complex multi-step tasks |
+        | Alternatives | Vercel AI SDK, CrewAI, OpenAI Agents SDK, Google ADK | Temporal, Inngest | Claude Agent SDK, Manus |
         """
     )
     return
@@ -29,22 +59,34 @@ def _(mo):
 def _(mo):
     mo.md(
         """
-        ## The Three Layers
+        ## LangChain — the Framework
 
-        Think of them as a stack — each layer builds on the one below:
+        Swap a model provider in one line. Wire up tools with a decorator. Get a working agent loop out of the box.
+        """
+    )
+    return
 
-        ```
-        ┌─────────────────────────────────┐
-        │   Deep Agents SDK  (harness)    │  ← batteries included
-        ├─────────────────────────────────┤
-        │   LangChain        (framework)  │  ← abstractions & integrations
-        ├─────────────────────────────────┤
-        │   LangGraph        (runtime)    │  ← orchestration engine
-        └─────────────────────────────────┘
-        ```
 
-        LangChain 1.0 is built **on top of** LangGraph. You don't need to know LangGraph to use LangChain.
-        Deep Agents SDK builds on top of LangGraph and adds planning, file systems, and subagent spawning.
+@app.cell
+def _(mo, os, ChatOpenAI):
+    # A working agent in 5 lines
+    llm = ChatOpenAI(
+        base_url=os.environ["AI_ENDPOINT"] + "/v1",
+        api_key=os.environ["AI_KEY"],
+        model="glm-5",
+    )
+    response = llm.invoke("What is LangChain in one sentence?")
+    mo.md(f"**Model says:** {response.content}")
+    return (llm,)
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        """
+        That's it. One class, one call. LangChain handles message formatting, retries, and provider differences.
+
+        Use LangChain when you want to build agents fast without worrying about orchestration details.
         """
     )
     return
@@ -54,23 +96,16 @@ def _(mo):
 def _(mo):
     mo.md(
         """
-        ## 1. Agent Frameworks (LangChain)
+        ## LangGraph — the Runtime
 
-        Agent frameworks provide **abstractions** that make it easier to get started building with LLMs.
+        LangGraph gives you the engine under the hood. You define nodes (functions) and edges (transitions) as a graph.
 
-        LangChain gives you:
-        - Standard model interface (swap providers with one line)
-        - Structured content blocks & agent loop
-        - Middleware system
-        - 100+ integrations out of the box
+        - **Durable execution** — agents survive failures and resume where they stopped
+        - **Streaming** — token-by-token output and event streams
+        - **Human-in-the-loop** — pause, inspect, modify agent state, then continue
+        - **Persistence** — save and restore conversation threads
 
-        **Use LangChain when:**
-        - You want to quickly build agents and autonomous applications
-        - You need standard abstractions for models, tools, and agent loops
-        - You want easy-to-use but still flexible
-        - Building straightforward agent apps without complex orchestration
-
-        **Alternatives:** Vercel AI SDK, CrewAI, OpenAI Agents SDK, Google ADK, LlamaIndex
+        Use LangGraph when you need fine-grained control or your workflow mixes deterministic steps with LLM calls.
         """
     )
     return
@@ -80,50 +115,16 @@ def _(mo):
 def _(mo):
     mo.md(
         """
-        ## 2. Agent Runtimes (LangGraph)
+        ## Deep Agents SDK — the Harness
 
-        Agent runtimes provide the tooling for **running agents in production**.
+        Deep Agents wraps LangGraph with opinionated defaults for complex, long-running tasks.
 
-        LangGraph gives you:
-        - **Durable execution** — agents persist through failures, resume where they left off
-        - **Streaming** — streaming workflows and responses
-        - **Human-in-the-loop** — inspect and modify agent state
-        - **Persistence** — thread-level and cross-thread state management
-        - **Low-level control** — direct control over orchestration
+        - **Planning** — the agent tracks tasks with a to-do list
+        - **Subagents** — delegate work, keep context clean
+        - **File system** — read/write on pluggable storage
+        - **Token management** — auto-summarize history, evict large results
 
-        **Use LangGraph when:**
-        - You need fine-grained control over agent orchestration
-        - You need durable execution for long-running stateful agents
-        - Building complex workflows mixing deterministic + agentic steps
-        - You need production-ready infrastructure
-
-        **Alternatives:** Temporal, Inngest
-        """
-    )
-    return
-
-
-@app.cell
-def _(mo):
-    mo.md(
-        """
-        ## 3. Agent Harnesses (Deep Agents SDK)
-
-        Agent harnesses are **opinionated, batteries-included** frameworks with built-in tools.
-
-        Deep Agents SDK gives you:
-        - **Planning** — track multiple tasks with a to-do list
-        - **Task delegation** — spawn subagents, keep context clean
-        - **File system** — read/write on pluggable storage backends
-        - **Token management** — conversation summarization, large result eviction
-
-        **Use Deep Agents SDK when:**
-        - Building agents that run over long time periods
-        - Handling complex, multi-step tasks requiring planning
-        - You want predefined tools (filesystem, bash, context engineering)
-        - You want predefined prompts and subagents
-
-        **Alternatives:** Claude Agent SDK, Manus
+        Use Deep Agents when your agent needs to plan, research, and produce artifacts over many steps.
         """
     )
     return
@@ -136,13 +137,12 @@ def _(mo):
         ## Feature Comparison
 
         | Feature | LangChain | LangGraph | Deep Agents |
-        |---------|-----------|-----------|-------------|
+        |---|---|---|---|
         | Short-term memory | built-in | built-in | StateBackend |
         | Long-term memory | built-in | built-in | built-in |
-        | Skills / plugins | multi-agent skills | — | skills |
-        | Subagents | multi-agent subagents | subgraphs | subagents |
+        | Multi-agent | skills, subagents, handoffs | subgraphs | subagents, skills |
         | Human-in-the-loop | middleware | interrupts | interrupt_on param |
-        | Streaming | agent streaming | built-in | built-in |
+        | Streaming | built-in | built-in | built-in |
         """
     )
     return
@@ -153,7 +153,7 @@ def _(mo):
     framework = mo.ui.dropdown(
         options=["LangChain", "LangGraph", "Deep Agents SDK"],
         value="LangChain",
-        label="Which framework fits your use case?",
+        label="Pick the one that fits your use case:",
     )
     framework
     return (framework,)
@@ -161,62 +161,36 @@ def _(mo):
 
 @app.cell
 def _(framework, mo):
-    descriptions = {
-        "LangChain": mo.md(
-            """
-            ### You picked: LangChain (Framework)
-
-            **Best for:** Getting started fast, standard agent patterns, team standardization.
-
-            **Next step:** Go to Lesson 2 (LangChain Overview) to learn the architecture and build your first agent in ~10 lines of code.
-
-            ```
-            pip install langchain langchain-openai
-            ```
-            """
+    guide = {
+        "LangChain": (
+            "**LangChain** — start here. "
+            "You get a working agent in minutes, swap providers freely, and add tools with decorators. "
+            "Next up: Lesson 2 (LangChain Overview)."
         ),
-        "LangGraph": mo.md(
-            """
-            ### You picked: LangGraph (Runtime)
-
-            **Best for:** Production workflows, durable execution, complex state machines.
-
-            **Next step:** Start with LangChain first (Lessons 2-7), then dive into LangGraph in Phase 8 of the learning plan.
-
-            ```
-            pip install langgraph
-            ```
-            """
+        "LangGraph": (
+            "**LangGraph** — for when you need control. "
+            "Define nodes, edges, and state explicitly. Great for production workflows. "
+            "Learn LangChain first (Lessons 2-7), then jump to Phase 8."
         ),
-        "Deep Agents SDK": mo.md(
-            """
-            ### You picked: Deep Agents SDK (Harness)
-
-            **Best for:** Autonomous long-running agents, complex multi-step tasks with planning.
-
-            **Next step:** Learn LangChain basics first (it's the foundation), then explore Deep Agents for advanced autonomous use cases.
-
-            ```
-            pip install deepagents
-            ```
-            """
+        "Deep Agents SDK": (
+            "**Deep Agents SDK** — for autonomous, long-running work. "
+            "Planning, subagents, and file systems come built in. "
+            "Learn LangChain first, then explore Deep Agents for advanced use cases."
         ),
     }
-    descriptions[framework.value]
-    return (descriptions,)
+    mo.md(guide[framework.value])
+    return
 
 
 @app.cell
 def _(mo):
     mo.md(
         """
-        ## Key Takeaway
+        > **Start with LangChain.** Drop to LangGraph when you need low-level control.
+        > Reach for Deep Agents when the task demands planning and autonomy.
+        > All three come from the same team and compose together.
 
-        > **Start with LangChain** for most use cases. Drop down to **LangGraph** when you need
-        > low-level control or durable execution. Use **Deep Agents SDK** when you need
-        > batteries-included autonomous agents for complex tasks.
-
-        All three are maintained by the same team and designed to work together.
+        **Next:** Lesson 2 — LangChain Overview
         """
     )
     return
@@ -224,8 +198,10 @@ def _(mo):
 
 @app.cell
 def _():
+    import os
     import marimo as mo
-    return (mo,)
+    from langchain_openai import ChatOpenAI
+    return ChatOpenAI, mo, os
 
 
 if __name__ == "__main__":
