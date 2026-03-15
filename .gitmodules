@@ -1,0 +1,12 @@
+[submodule "deepagents"]
+	path = deepagents
+	url = git@github.com:langchain-ai/deepagents.git
+[submodule "docs"]
+	path = docs
+	url = git@github.com:langchain-ai/docs.git
+[submodule "langchain"]
+	path = langchain
+	url = git@github.com:langchain-ai/langchain.git
+[submodule "langgraph"]
+	path = langgraph
+	url = git@github.com:langchain-ai/langgraph.git
