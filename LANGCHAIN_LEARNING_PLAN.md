@@ -8,7 +8,7 @@ All paths relative to `docs/src/oss/`.
 
 | # | Topic | File | What you'll learn |
 |---|-------|------|-------------------|
-| 1 | Framework landscape | `concepts/products.mdx` | LangChain vs LangGraph vs Deep Agents — when to use what |
+| 1 | Framework landscape | `concepts/products.mdx` | LangChain vs other frameworks — when to use what |
 | 2 | LangChain overview | `langchain/overview.mdx` | Architecture, key benefits, 10-line agent |
 | 3 | Install | `langchain/install.mdx` | `pip install langchain` + provider packages |
 | 4 | Quickstart | `langchain/quickstart.mdx` | Build your first agent end-to-end |
@@ -80,22 +80,6 @@ All paths relative to `docs/src/oss/`.
 | 34 | Observability | `langchain/observability.mdx` | LangSmith tracing & debugging |
 | 35 | Deployment | `langchain/deploy.mdx` | Deploy to production |
 
-## Phase 8: LangGraph (Advanced)
-
-For when you need lower-level control over agent orchestration:
-
-| # | Topic | File |
-|---|-------|------|
-| 36 | LangGraph overview | `langgraph/overview.mdx` |
-| 37 | Quickstart | `langgraph/quickstart.mdx` |
-| 38 | Choosing APIs | `langgraph/choosing-apis.mdx` |
-| 39 | Graph API | `langgraph/graph-api.mdx` |
-| 40 | Functional API | `langgraph/functional-api.mdx` |
-| 41 | Persistence | `langgraph/persistence.mdx` |
-| 42 | Durable execution | `langgraph/durable-execution.mdx` |
-| 43 | Custom RAG agent | `langgraph/agentic-rag.mdx` |
-| 44 | Custom SQL agent | `langgraph/sql-agent.mdx` |
-
 ## Integrations Reference
 
 When you need a specific provider or tool, browse:
@@ -112,4 +96,4 @@ Key categories: `chat/`, `llms/`, `embeddings/`, `vectorstores/`, `tools/`, `doc
 - **Week 2:** Phase 3 (memory & context) — make agents remember
 - **Week 3:** Phases 4-5 (retrieval + production) — build RAG, add guardrails
 - **Week 4:** Phase 6 (multi-agent) — orchestrate multiple agents
-- **Ongoing:** Phases 7-8 (projects + LangGraph) — build real applications
+- **Ongoing:** Phase 7 (projects) — build real applications
