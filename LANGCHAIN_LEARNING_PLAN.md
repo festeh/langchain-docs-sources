@@ -10,8 +10,8 @@ All paths relative to `docs/src/oss/`.
 |---|-------|------|-------------------|
 | 1 | ~~Framework landscape~~ | `concepts/products.mdx` | ~~LangChain vs other frameworks — when to use what~~ |
 | 2 | ~~LangChain overview~~ | `langchain/overview.mdx` | ~~Architecture, key benefits, 10-line agent~~ |
-| 3 | Install | `langchain/install.mdx` | `pip install langchain` + provider packages |
-| 4 | Quickstart | `langchain/quickstart.mdx` | Build your first agent end-to-end |
+| 3 | ~~Install~~ | `langchain/install.mdx` | ~~`pip install langchain` + provider packages~~ |
+| 4 | ~~Quickstart~~ | `langchain/quickstart.mdx` | ~~Build your first agent end-to-end~~ |
 | 5 | Philosophy | `langchain/philosophy.mdx` | Design principles behind the framework |
 
 ## Phase 2: Core Building Blocks

@@ -10,6 +10,10 @@ run notebook:
 cleanup:
     -fuser -k 8888/tcp
 
+# Run a Python command/script with decrypted env vars
+py *args:
+    sops exec-env .env 'uv run python {{args}}'
+
 # Decrypt .env to stdout
 show-env:
     sops decrypt .env

@@ -36,6 +36,19 @@ agent = create_agent(llm, tools=[...])
 
 Never hardcode keys. Never use provider-specific classes like `ChatAnthropic` or `ChatGoogleGenerativeAI` — route everything through `ChatOpenAI` with our endpoint.
 
+## Running Code
+
+All code that needs env vars must go through the justfile, which handles SOPS decryption:
+
+```bash
+just py script.py          # run a script
+just py -c "print('hi')"   # run inline python
+just edit notebook.py       # marimo edit mode
+just run notebook.py        # marimo read-only mode
+```
+
+Never call `sops exec-env` directly — use `just py` instead.
+
 ## Writing Tutorials
 
 ### Voice and Clarity
