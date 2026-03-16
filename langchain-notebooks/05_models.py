@@ -16,12 +16,14 @@ def _(mo):
 
 @app.cell
 def _(ChatOpenAI, os):
+    MODEL = "kimi-k2.5"
+
     llm = ChatOpenAI(
         base_url=os.environ["AI_ENDPOINT"] + "/v1",
         api_key=os.environ["AI_KEY"],
-        model="kimi-k2.5",
+        model=MODEL,
     )
-    return (llm,)
+    return MODEL, llm
 
 
 @app.cell
@@ -44,22 +46,22 @@ def _(mo):
 
 
 @app.cell
-def _(ChatOpenAI, mo, os):
+def _(ChatOpenAI, MODEL, mo, os):
     # Temperature comparison
     cold = ChatOpenAI(
         base_url=os.environ["AI_ENDPOINT"] + "/v1",
         api_key=os.environ["AI_KEY"],
-        model="glm-5",
+        model=MODEL,
         temperature=0.0,
     )
     hot = ChatOpenAI(
         base_url=os.environ["AI_ENDPOINT"] + "/v1",
         api_key=os.environ["AI_KEY"],
-        model="glm-5",
-        temperature=1.5,
+        model=MODEL,
+        temperature=1.9999,
     )
 
-    prompt = "Name a random color."
+    prompt = "Name 4 random colors"
     cold_response = cold.invoke(prompt)
     hot_response = hot.invoke(prompt)
 

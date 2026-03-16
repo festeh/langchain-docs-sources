@@ -18,92 +18,93 @@ All paths relative to `docs/src/oss/`.
 | # | Topic | File | What you'll learn |
 |---|-------|------|-------------------|
 | 5 | Models | `langchain/models.mdx` | Chat model interface, parameters, invoke/stream/batch |
-| 6 | Messages | `langchain/messages.mdx` | Message types (human, AI, system, tool), content blocks |
-| 7 | Tools | `langchain/tools.mdx` | Define tools, tool calling, ToolRuntime, injection |
-| 8 | Structured output | `langchain/structured-output.mdx` | Response schemas, ToolStrategy, validated outputs |
-| 9 | Agents (deep dive) | `langchain/agents.mdx` | Agent loop, create_agent options, graph internals |
-| 10 | Component architecture | `langchain/component-architecture.mdx` | How components compose together |
+| 6 | Models: multimodal & advanced | `langchain/models.mdx` | Multimodal inputs, reasoning tokens, caching, custom models |
+| 7 | Messages | `langchain/messages.mdx` | Message types (human, AI, system, tool), content blocks |
+| 8 | Tools | `langchain/tools.mdx` | Define tools, tool calling, ToolRuntime, injection |
+| 9 | Structured output | `langchain/structured-output.mdx` | Response schemas, ToolStrategy, validated outputs |
+| 10 | Agents (deep dive) | `langchain/agents.mdx` | Agent loop, create_agent options, graph internals |
+| 11 | Component architecture | `langchain/component-architecture.mdx` | How components compose together |
 
 ## Phase 3: Memory & Context
 
 | # | Topic | File | What you'll learn |
 |---|-------|------|-------------------|
-| 11 | Context engineering | `langchain/context-engineering.mdx` | Prompt optimization, context window management |
-| 12 | Short-term memory | `langchain/short-term-memory.mdx` | Conversation history, trimming, summarization |
-| 13 | Long-term memory | `langchain/long-term-memory.mdx` | Persistent memory across conversations |
-| 14 | Concepts: context | `concepts/context.mdx` | Static vs dynamic context, state vs store |
-| 15 | Concepts: memory | `concepts/memory.mdx` | Semantic, episodic, procedural memory |
+| 12 | Context engineering | `langchain/context-engineering.mdx` | Prompt optimization, context window management |
+| 13 | Short-term memory | `langchain/short-term-memory.mdx` | Conversation history, trimming, summarization |
+| 14 | Long-term memory | `langchain/long-term-memory.mdx` | Persistent memory across conversations |
+| 15 | Concepts: context | `concepts/context.mdx` | Static vs dynamic context, state vs store |
+| 16 | Concepts: memory | `concepts/memory.mdx` | Semantic, episodic, procedural memory |
 
 ## Phase 4: Retrieval & Knowledge
 
 | # | Topic | File | What you'll learn |
 |---|-------|------|-------------------|
-| 16 | Retrieval | `langchain/retrieval.mdx` | Retriever interface, document loading, splitting |
-| 17 | Knowledge base | `langchain/knowledge-base.mdx` | Build a semantic search engine |
-| 18 | RAG agent | `langchain/rag.mdx` | Full retrieval-augmented generation agent |
+| 17 | Retrieval | `langchain/retrieval.mdx` | Retriever interface, document loading, splitting |
+| 18 | Knowledge base | `langchain/knowledge-base.mdx` | Build a semantic search engine |
+| 19 | RAG agent | `langchain/rag.mdx` | Full retrieval-augmented generation agent |
 
 ## Phase 5: Production Patterns
 
 | # | Topic | File | What you'll learn |
 |---|-------|------|-------------------|
-| 19 | Streaming | `langchain/streaming.mdx` | Token-by-token output, streaming events |
-| 20 | Human-in-the-loop | `langchain/human-in-the-loop.mdx` | Approval flows, human oversight |
-| 21 | Guardrails | `langchain/guardrails.mdx` | Input/output validation, safety |
-| 22 | Middleware overview | `langchain/middleware/overview.mdx` | Middleware concepts and pipeline |
-| 23 | Built-in middleware | `langchain/middleware/built-in.mdx` | Summarization, message trimming |
-| 24 | Custom middleware | `langchain/middleware/custom.mdx` | Write your own middleware |
-| 25 | MCP | `langchain/mcp.mdx` | Model Context Protocol integration |
-| 26 | Runtime | `langchain/runtime.mdx` | Execution environment, Runtime object |
+| 20 | Streaming | `langchain/streaming.mdx` | Token-by-token output, streaming events |
+| 21 | Human-in-the-loop | `langchain/human-in-the-loop.mdx` | Approval flows, human oversight |
+| 22 | Guardrails | `langchain/guardrails.mdx` | Input/output validation, safety |
+| 23 | Middleware overview | `langchain/middleware/overview.mdx` | Middleware concepts and pipeline |
+| 24 | Built-in middleware | `langchain/middleware/built-in.mdx` | Summarization, message trimming |
+| 25 | Custom middleware | `langchain/middleware/custom.mdx` | Write your own middleware |
+| 26 | MCP | `langchain/mcp.mdx` | Model Context Protocol integration |
+| 27 | Runtime | `langchain/runtime.mdx` | Execution environment, Runtime object |
 
 ## Phase 6: Multi-Agent Systems
 
 | # | Topic | File | What you'll learn |
 |---|-------|------|-------------------|
-| 27 | Multi-agent intro | `langchain/multi-agent/index.mdx` | Patterns overview |
-| 28 | Handoffs | `langchain/multi-agent/handoffs.mdx` | Agent-to-agent delegation |
-| 29 | Router | `langchain/multi-agent/router.mdx` | Route requests to specialized agents |
-| 30 | Skills | `langchain/multi-agent/skills.mdx` | On-demand capability modules |
-| 31 | Subagents | `langchain/multi-agent/subagents.mdx` | Nested agent orchestration |
-| 32 | Custom workflow | `langchain/multi-agent/custom-workflow.mdx` | Design your own patterns |
+| 28 | Multi-agent intro | `langchain/multi-agent/index.mdx` | Patterns overview |
+| 29 | Handoffs | `langchain/multi-agent/handoffs.mdx` | Agent-to-agent delegation |
+| 30 | Router | `langchain/multi-agent/router.mdx` | Route requests to specialized agents |
+| 31 | Skills | `langchain/multi-agent/skills.mdx` | On-demand capability modules |
+| 32 | Subagents | `langchain/multi-agent/subagents.mdx` | Nested agent orchestration |
+| 33 | Custom workflow | `langchain/multi-agent/custom-workflow.mdx` | Design your own patterns |
 
 ### Multi-Agent Tutorials (build along)
 
 | # | Topic | File | What you'll build |
 |---|-------|------|-------------------|
-| 33 | Handoffs tutorial | `langchain/multi-agent/handoffs-customer-support.mdx` | Customer support bot |
-| 34 | Router tutorial | `langchain/multi-agent/router-knowledge-base.mdx` | Multi-source knowledge base |
-| 35 | Skills tutorial | `langchain/multi-agent/skills-sql-assistant.mdx` | SQL assistant |
-| 36 | Subagents tutorial | `langchain/multi-agent/subagents-personal-assistant.mdx` | Personal assistant |
+| 34 | Handoffs tutorial | `langchain/multi-agent/handoffs-customer-support.mdx` | Customer support bot |
+| 35 | Router tutorial | `langchain/multi-agent/router-knowledge-base.mdx` | Multi-source knowledge base |
+| 36 | Skills tutorial | `langchain/multi-agent/skills-sql-assistant.mdx` | SQL assistant |
+| 37 | Subagents tutorial | `langchain/multi-agent/subagents-personal-assistant.mdx` | Personal assistant |
 
 ## Phase 7: Testing & Evaluation
 
 | # | Topic | File | What you'll learn |
 |---|-------|------|-------------------|
-| 37 | Testing overview | `langchain/test/index.mdx` | Testing strategies for agents |
-| 38 | Unit testing | `langchain/test/unit-testing.mdx` | Mock models and tools, test in isolation |
-| 39 | Integration testing | `langchain/test/integration-testing.mdx` | End-to-end agent tests |
-| 40 | Evals | `langchain/test/evals.mdx` | LLM-as-judge, evaluation frameworks |
+| 38 | Testing overview | `langchain/test/index.mdx` | Testing strategies for agents |
+| 39 | Unit testing | `langchain/test/unit-testing.mdx` | Mock models and tools, test in isolation |
+| 40 | Integration testing | `langchain/test/integration-testing.mdx` | End-to-end agent tests |
+| 41 | Evals | `langchain/test/evals.mdx` | LLM-as-judge, evaluation frameworks |
 
 ## Phase 8: Practical Projects
 
 | # | Topic | File | What you'll learn |
 |---|-------|------|-------------------|
-| 41 | SQL agent | `langchain/sql-agent.mdx` | Query databases with natural language |
-| 42 | Voice agent | `langchain/voice-agent.mdx` | Audio input/output agent |
-| 43 | Observability | `langchain/observability.mdx` | LangSmith tracing & debugging |
-| 44 | Deployment | `langchain/deploy.mdx` | Deploy to production |
+| 42 | SQL agent | `langchain/sql-agent.mdx` | Query databases with natural language |
+| 43 | Voice agent | `langchain/voice-agent.mdx` | Audio input/output agent |
+| 44 | Observability | `langchain/observability.mdx` | LangSmith tracing & debugging |
+| 45 | Deployment | `langchain/deploy.mdx` | Deploy to production |
 
 ## Phase 9: Frontend Integration
 
 | # | Topic | File | What you'll learn |
 |---|-------|------|-------------------|
-| 45 | Frontend overview | `langchain/frontend/overview.mdx` | Building agent UIs |
-| 46 | Generative UI | `langchain/frontend/generative-ui.mdx` | Dynamic UI generation from agent output |
-| 47 | Tool calling UI | `langchain/frontend/tool-calling.mdx` | Display tool calls in the interface |
-| 48 | Structured output UI | `langchain/frontend/structured-output.mdx` | Render structured responses |
-| 49 | Human-in-the-loop UI | `langchain/frontend/human-in-the-loop.mdx` | Approval interfaces |
-| 50 | Branching chat | `langchain/frontend/branching-chat.mdx` | Conversation branching and forking |
-| 51 | Time travel | `langchain/frontend/time-travel.mdx` | Replay and rewind state in UI |
+| 46 | Frontend overview | `langchain/frontend/overview.mdx` | Building agent UIs |
+| 47 | Generative UI | `langchain/frontend/generative-ui.mdx` | Dynamic UI generation from agent output |
+| 48 | Tool calling UI | `langchain/frontend/tool-calling.mdx` | Display tool calls in the interface |
+| 49 | Structured output UI | `langchain/frontend/structured-output.mdx` | Render structured responses |
+| 50 | Human-in-the-loop UI | `langchain/frontend/human-in-the-loop.mdx` | Approval interfaces |
+| 51 | Branching chat | `langchain/frontend/branching-chat.mdx` | Conversation branching and forking |
+| 52 | Time travel | `langchain/frontend/time-travel.mdx` | Replay and rewind state in UI |
 
 ## Phase 10: LangGraph (Advanced)
 
@@ -111,15 +112,15 @@ For when you need lower-level control over agent orchestration:
 
 | # | Topic | File | What you'll learn |
 |---|-------|------|-------------------|
-| 52 | LangGraph overview | `langgraph/overview.mdx` | Architecture, when to use LangGraph |
-| 53 | Quickstart | `langgraph/quickstart.mdx` | First LangGraph agent |
-| 54 | Choosing APIs | `langgraph/choosing-apis.mdx` | Graph API vs Functional API |
-| 55 | Graph API | `langgraph/graph-api.mdx` | StateGraph, nodes, edges |
-| 56 | Functional API | `langgraph/functional-api.mdx` | @entrypoint, @task, control flow |
-| 57 | Persistence | `langgraph/persistence.mdx` | Checkpointing and state snapshots |
-| 58 | Durable execution | `langgraph/durable-execution.mdx` | Fault tolerance and resumption |
-| 59 | Custom RAG agent | `langgraph/agentic-rag.mdx` | RAG with full graph control |
-| 60 | Custom SQL agent | `langgraph/sql-agent.mdx` | SQL with full graph control |
+| 53 | LangGraph overview | `langgraph/overview.mdx` | Architecture, when to use LangGraph |
+| 54 | Quickstart | `langgraph/quickstart.mdx` | First LangGraph agent |
+| 55 | Choosing APIs | `langgraph/choosing-apis.mdx` | Graph API vs Functional API |
+| 56 | Graph API | `langgraph/graph-api.mdx` | StateGraph, nodes, edges |
+| 57 | Functional API | `langgraph/functional-api.mdx` | @entrypoint, @task, control flow |
+| 58 | Persistence | `langgraph/persistence.mdx` | Checkpointing and state snapshots |
+| 59 | Durable execution | `langgraph/durable-execution.mdx` | Fault tolerance and resumption |
+| 60 | Custom RAG agent | `langgraph/agentic-rag.mdx` | RAG with full graph control |
+| 61 | Custom SQL agent | `langgraph/sql-agent.mdx` | SQL with full graph control |
 
 ## Integrations Reference
 

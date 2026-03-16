@@ -13,16 +13,18 @@ This repo contains marimo notebook tutorials for learning LangChain, LangGraph, 
 
 Notebooks use an OpenAI-compatible endpoint instead of direct provider APIs. Credentials are in `.env` (encrypted with SOPS).
 
-When writing code that calls an LLM, always use `ChatOpenAI` pointed at our endpoint:
+When writing code that calls an LLM, always use `ChatOpenAI` pointed at our endpoint. Define `MODEL` once and reuse it — never duplicate model names across cells:
 
 ```python
 import os
 from langchain_openai import ChatOpenAI
 
+MODEL = "glm-5"  # single source of truth for model name
+
 llm = ChatOpenAI(
     base_url=os.environ["AI_ENDPOINT"] + "/v1",
     api_key=os.environ["AI_KEY"],
-    model="glm-5",  # or any model available on the endpoint
+    model=MODEL,
 )
 ```
 
@@ -73,6 +75,10 @@ Each marimo notebook follows this pattern:
 3. **Code cells** — runnable examples that demonstrate the concept
 4. **Interactive cells** — use `mo.ui` widgets where they aid understanding
 5. **Takeaway cell** — a blockquote summarizing what to remember
+
+### Coverage Rule
+
+Every topic in the source docs must be covered somewhere in the notebooks. If a source file (e.g. `models.mdx`) contains more content than fits in one notebook, split it across multiple lessons or defer specific subtopics to later lessons — but update `LANGCHAIN_LEARNING_PLAN.md` so nothing falls through the cracks. The plan is the source of truth for what gets covered and where.
 
 ### What to Include
 
