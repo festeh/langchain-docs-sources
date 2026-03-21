@@ -23,7 +23,7 @@ def _(ChatOpenAI, os):
         api_key=os.environ["AI_KEY"],
         model=MODEL,
     )
-    return MODEL, llm
+    return (llm,)
 
 
 @app.cell
@@ -67,7 +67,7 @@ def _(ChatOpenAI, mo, os):
         reasoning_llm = ChatOpenAI(
             base_url=os.environ["AI_ENDPOINT"] + "/v1",
             api_key=os.environ["AI_KEY"],
-            model="claude-opus-4-6-thinking",
+            model="glm-5",
         )
 
         response = reasoning_llm.invoke("What is 17 * 23? Show your thinking.")
@@ -100,7 +100,7 @@ def _(mo):
     for chunk in model.stream("Solve this step by step..."):
         for block in chunk.content_blocks:
             if block["type"] == "reasoning":
-                print(block["reasoning"], end="")
+                print(block["reasoning"], end="\")
     ```
     """)
     return
@@ -181,7 +181,7 @@ def _(mo):
 
 @app.cell
 def _(llm, mo):
-    response = llm.invoke(
+    joke_response = llm.invoke(
         "Tell me a joke",
         config={
             "run_name": "joke_generation",
@@ -189,7 +189,9 @@ def _(llm, mo):
             "metadata": {"user_id": "42"},
         },
     )
-    mo.md(f"**Response:** {response.content}\n\n`run_name`, `tags`, and `metadata` are now visible in LangSmith traces.")
+    mo.md(
+        f"**Response:** {joke_response.content}\n\n`run_name`, `tags`, and `metadata` are now visible in LangSmith traces."
+    )
     return
 
 
@@ -272,6 +274,7 @@ def _():
     import os
     import marimo as mo
     from langchain_openai import ChatOpenAI
+
     return ChatOpenAI, mo, os
 
 
