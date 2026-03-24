@@ -20,8 +20,8 @@ All paths relative to `docs/src/oss/`.
 | 5 | ~~Models~~ | `langchain/models.mdx` | ~~Chat model interface, parameters, invoke/stream/batch~~ |
 | 6 | ~~Models: multimodal & advanced~~ | `langchain/models.mdx` | ~~Multimodal inputs, reasoning tokens, caching, custom models~~ |
 | 7 | ~~Messages~~ | `langchain/messages.mdx` | ~~Message types (human, AI, system, tool), content blocks~~ |
-| 8 | Tools | `langchain/tools.mdx` | Define tools, tool calling, ToolRuntime, injection |
-| 9 | Structured output | `langchain/structured-output.mdx` | Response schemas, ToolStrategy, validated outputs |
+| 8 | ~~Tools~~ | `langchain/tools.mdx` | ~~Define tools, tool calling, ToolRuntime, injection~~ |
+| 9 | ~~Structured output~~ | `langchain/structured-output.mdx` | ~~Response schemas, ToolStrategy, validated outputs~~ |
 | 10 | Agents (deep dive) | `langchain/agents.mdx` | Agent loop, create_agent options, graph internals |
 | 11 | Component architecture | `langchain/component-architecture.mdx` | How components compose together |
 

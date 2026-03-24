@@ -76,6 +76,38 @@ Each marimo notebook follows this pattern:
 4. **Interactive cells** — use `mo.ui` widgets where they aid understanding
 5. **Takeaway cell** — a blockquote summarizing what to remember
 
+### Code Cell Output
+
+Every code cell must end with a single `mo.md(...)` call — no branching. Collect results into a variable, then display it:
+
+```python
+# Good — gather state, display at the end
+results = []
+for doc in docs:
+    results.append(f"- **{doc.metadata['source']}**: {doc.page_content[:80]}")
+
+mo.md("\n".join(results))
+```
+
+```python
+# Bad — conditional md calls
+if response:
+    mo.md(f"Got: {response}")
+else:
+    mo.md("No response")
+```
+
+```python
+# Bad — md inside try/except
+try:
+    result = chain.invoke(query)
+    mo.md(f"Result: {result}")
+except Exception as e:
+    mo.md(f"Error: {e}")
+```
+
+Build the string first, then call `mo.md()` once at the bottom.
+
 ### Coverage Rule
 
 Every topic in the source docs must be covered somewhere in the notebooks. If a source file (e.g. `models.mdx`) contains more content than fits in one notebook, split it across multiple lessons or defer specific subtopics to later lessons — but update `LANGCHAIN_LEARNING_PLAN.md` so nothing falls through the cracks. The plan is the source of truth for what gets covered and where.
