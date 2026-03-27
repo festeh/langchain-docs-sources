@@ -23,7 +23,7 @@ All paths relative to `docs/src/oss/`.
 | 8 | ~~Tools~~ | `langchain/tools.mdx` | ~~Define tools, tool calling, ToolRuntime, injection~~ |
 | 9 | ~~Structured output~~ | `langchain/structured-output.mdx` | ~~Response schemas, ToolStrategy, validated outputs~~ |
 | 10 | ~~Agents (deep dive)~~ | `langchain/agents.mdx` | ~~Agent loop, create_agent options, graph internals~~ |
-| 11 | Component architecture | `langchain/component-architecture.mdx` | How components compose together |
+| 11 | ~~Component architecture~~ | `langchain/component-architecture.mdx` | ~~How components compose together~~ |
 
 ## Phase 3: Memory & Context
 
