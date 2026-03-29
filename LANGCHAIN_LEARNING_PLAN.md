@@ -29,11 +29,11 @@ All paths relative to `docs/src/oss/`.
 
 | # | Topic | File | What you'll learn |
 |---|-------|------|-------------------|
-| 12 | Context engineering | `langchain/context-engineering.mdx` | Prompt optimization, context window management |
-| 13 | Short-term memory | `langchain/short-term-memory.mdx` | Conversation history, trimming, summarization |
-| 14 | Long-term memory | `langchain/long-term-memory.mdx` | Persistent memory across conversations |
-| 15 | Concepts: context | `concepts/context.mdx` | Static vs dynamic context, state vs store |
-| 16 | Concepts: memory | `concepts/memory.mdx` | Semantic, episodic, procedural memory |
+| 12 | ~~Context engineering~~ | `langchain/context-engineering.mdx` | ~~Prompt optimization, context window management~~ |
+| 13 | ~~Short-term memory~~ | `langchain/short-term-memory.mdx` | ~~Conversation history, trimming, summarization~~ |
+| 14 | ~~Long-term memory~~ | `langchain/long-term-memory.mdx` | ~~Persistent memory across conversations~~ |
+| 15 | ~~Concepts: context~~ | `concepts/context.mdx` | ~~Static vs dynamic context, state vs store~~ |
+| 16 | ~~Concepts: memory~~ | `concepts/memory.mdx` | ~~Semantic, episodic, procedural memory~~ |
 
 ## Phase 4: Retrieval & Knowledge
 
