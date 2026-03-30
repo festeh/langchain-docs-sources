@@ -45,8 +45,7 @@ All code that needs env vars must go through the justfile, which handles SOPS de
 ```bash
 just py script.py          # run a script
 just py -c "print('hi')"   # run inline python
-just edit notebook.py       # marimo edit mode
-just run notebook.py        # marimo read-only mode
+just edit notebook.py       # marimo edit mode (no token required)
 ```
 
 Never call `sops exec-env` directly — use `just py` instead.
